@@ -2,19 +2,23 @@
 
 public class ShipController : MonoBehaviour
 {
-	const uint MaxSpeed = 3;
 	const float MinTurning = -1;
 	const float MaxTurning = 1;
-	const float baseTurningSpeed = 2;
-
+	
 	[SerializeField]
 	private float baseSpeed = 0.01f;
 	[SerializeField]
 	private float torque = 0.005f;
+	[SerializeField]
+	private int forwardSpeedLevels = 5;
+	[SerializeField]
+	private int reverseSpeedLevels = -1;
+	[SerializeField]
+	private float baseTurningSpeed = 2;
 
 	private Rigidbody2D rigidBody;
 
-	private uint speed = 0;
+	private int speed = 0;
 	private float turningValue = 0;
 	private float turningTarget = 0;
 
@@ -25,7 +29,7 @@ public class ShipController : MonoBehaviour
 
 	public void SpeedUp()
 	{
-		if (speed < MaxSpeed)
+		if (speed < forwardSpeedLevels)
 		{
 			speed++;
 		}
@@ -33,7 +37,7 @@ public class ShipController : MonoBehaviour
 
 	public void SlowDown()
 	{
-		if (speed > 0)
+		if (speed > reverseSpeedLevels)
 		{
 			speed--;
 		}
@@ -75,7 +79,7 @@ public class ShipController : MonoBehaviour
 
 	private void UpdateVelocity()
 	{
-		if (speed > 0)
+		if (speed != 0)
 		{
 			Vector2 velocity = transform.right;
 			velocity.Normalize();
