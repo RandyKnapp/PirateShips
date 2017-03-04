@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ShipController : MonoBehaviour
+public class ShipMovementController : MonoBehaviour
 {
 	const float MinTurning = -1;
 	const float MaxTurning = 1;

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class ShipDebugText : MonoBehaviour
 {
 	[SerializeField]
-	private ShipController ship;
+	private ShipMovementController ship;
 
 	private Text text;
 
@@ -15,7 +15,7 @@ public class ShipDebugText : MonoBehaviour
 
 	private void Update()
 	{
-		
+		text.text = "Debug";
 	}
 
 }

@@ -2,11 +2,11 @@
 
 public class PlayerShipController : MonoBehaviour
 {
-	private ShipController shipController;
+	private ShipMovementController shipController;
 
 	private void Awake()
 	{
-		shipController = gameObject.GetComponent<ShipController>();
+		shipController = gameObject.GetComponent<ShipMovementController>();
 	}
 
 	private void Update()
